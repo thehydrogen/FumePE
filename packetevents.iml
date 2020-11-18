@@ -24,9 +24,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.github.spigot:1.9:1.9" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.github.spigot:1.8.8:1.8.8" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.github.spigot:1.7.10:1.7.10" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: com.comphenix.protocol:ProtocolLib:4.5.0" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: cglib:cglib-nodep:3.2.5" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: com.comphenix.executors:BukkitExecutors:1.1-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: commons-lang:commons-lang:2.6" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.googlecode.json-simple:json-simple:1.1.1" level="project" />
