@@ -108,7 +108,7 @@ public final class PacketEvents implements Listener {
                 WrappedPacket.loadAllWrappers();
             } catch (Exception ex) {
                 loading = false;
-                throw new LoadException();
+                throw new LoadException(ex);
             }
             loaded = true;
             loading = false;
@@ -162,9 +162,12 @@ public final class PacketEvents implements Listener {
             }
 
             if (settings.shouldCheckForUpdates()) {
-                Future<?> future =
-                        PacketEvents.generalExecutorService
-                                .submit(() -> new UpdateChecker().handleUpdate());
+                PacketEvents.generalExecutorService.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        new UpdateChecker().handleUpdate();
+                    }
+                });
             }
 
             if (getAPI().getServerUtils().isBungeeCordEnabled()) {

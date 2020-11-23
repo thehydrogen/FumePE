@@ -25,11 +25,11 @@
 package dev.fume.packetevents.v1_7.exceptions;
 
 public class LoadException extends RuntimeException {
-    public LoadException(String message) {
+    public LoadException(String message, Throwable cause) {
         super(message);
     }
 
-    public LoadException() {
-        this("PacketEvents failed to successfully load...");
+    public LoadException(Throwable cause) {
+        this("PacketEvents failed to successfully load...", cause);
     }
 }
