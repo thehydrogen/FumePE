@@ -279,20 +279,15 @@ public class PacketManager {
     }
 
     private void interceptLogin(PacketLoginEvent event) {
-//        if (event.getPacketId() == PacketType.Login.HANDSHAKE &&
-//        PacketEvents.getAPI().getServerUtils().getVersion() != ServerVersion.v_1_7_10) {
-//                WrappedPacketLoginHandshake handshake = new WrappedPacketLoginHandshake(event.getNMSPacket());
-//                int protocolVersion = handshake.getProtocolVersion();
-//                ClientVersion version = ClientVersion.getClientVersion(protocolVersion);
-//                PacketEvents.getAPI().getPlayerUtils().clientVersionsMap.put(event.getChannel(), version);
-//        }
         if (event.getPacketId() == PacketType.Login.HANDSHAKE
                 && PacketEvents.getAPI().getServerUtils().getVersion() != ServerVersion.v_1_7_10
                 && !PacketEvents.getAPI().getServerUtils().isBungeeCordEnabled()) {
-            WrappedPacketLoginHandshake handshake = new WrappedPacketLoginHandshake(event.getNMSPacket());
-            int protocolVersion = handshake.getProtocolVersion();
-            ClientVersion version = ClientVersion.getClientVersion(protocolVersion);
-            PacketEvents.getAPI().getPlayerUtils().clientVersionsMap.put(event.getChannel(), version);
+            if (!PacketEvents.getAPI().getPlayerUtils().clientVersionsMap.containsKey(event.getChannel())) {
+                WrappedPacketLoginHandshake handshake = new WrappedPacketLoginHandshake(event.getNMSPacket());
+                int protocolVersion = handshake.getProtocolVersion();
+                ClientVersion version = ClientVersion.getClientVersion(protocolVersion);
+                PacketEvents.getAPI().getPlayerUtils().clientVersionsMap.put(event.getChannel(), version);
+            }
         }
     }
 
